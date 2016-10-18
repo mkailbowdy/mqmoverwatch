@@ -38,22 +38,27 @@ function getPlayer () {
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // Turn the server's response into a string
-            var serverResponse = xhr.responseText;
-            // Parse the JSON received and turn into a JS object. Access the data property to get the player info we want
-            var playerInfo = JSON.parse(serverResponse).data;
-            // playerInfo is an object that contains player's information
-            console.log(playerInfo); // See if the info is comes up
-            
-            // Change Player Names
-            var player1 = document.getElementById("player1");
-            
-            if (player1) {
-                player1.innerHTML = playerInfo.username;
-                console.log(player1);
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                // Turn the server's response into a string
+                var serverResponse = xhr.responseText;
+                // Parse the JSON received and turn into a JS object. Access the data property to get the player info we want
+                var playerInfo = JSON.parse(serverResponse).data;
+                // playerInfo is an object that contains player's information
+                console.log(playerInfo); // See if the info is comes up
+                // See if a player name comes up, if not, throw error
+                if (typeof playerInfo != "undefined") {
+                    var player1 = document.getElementById("player1");
+                    player1.innerHTML = playerInfo.username;
+                    console.log(player1);
+                } else {
+                    var serverResponse = xhr.responseText;
+                    // Parse the JSON received and turn into a JS object. Access the data property to get the player info we want
+                    var playerInfo = JSON.parse(serverResponse);
+                    alert(playerInfo.error);     
+                }
             }
-        } 
+        }
     }
     
     
