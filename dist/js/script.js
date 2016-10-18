@@ -1,12 +1,12 @@
 var compareBtn = document.getElementById("getPlayer");
 
-
 if (compareBtn) {
     compareBtn.addEventListener("click", getPlayer);
     console.log("Compare button is working");
 } else {
     console.log("Compare button not working");
 }
+
 
 /* Overwatch API */
 function getPlayer () {
@@ -34,7 +34,6 @@ function getPlayer () {
     var playerTag = document.getElementById("playerTag").value;
     var overwatchAPI = "https://api.lootbox.eu/" + platform + "/" + region + "/" + playerTag + "/profile";
     console.log(overwatchAPI);
-    //var overwatchAPI = "https://api.lootbox.eu/pc/us/FortyLashes-11902/profile";
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -66,3 +65,11 @@ function getPlayer () {
     xhr.send();
     
 }
+
+// If user presses enter on the <input type="text">, have the compare button fire
+document.getElementById("playerTag").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById("getPlayer").click();
+    }
+}, false);
