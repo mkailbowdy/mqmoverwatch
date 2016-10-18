@@ -1,3 +1,13 @@
+function openModal() {
+        document.getElementById('modal').style.display = 'inline';
+        document.getElementById('fade').style.display = 'inline';
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('fade').style.display = 'none';
+}
+
 var compareBtn = document.getElementById("getPlayer");
 
 if (compareBtn) {
@@ -10,6 +20,7 @@ if (compareBtn) {
 
 /* Overwatch API */
 function getPlayer () {
+    openModal();
     // Get the default API url using the platform and region and tag entered
     var region = "";
     var platform = "";
@@ -50,11 +61,14 @@ function getPlayer () {
                     var player1 = document.getElementById("player1");
                     player1.innerHTML = playerInfo.username;
                     console.log(player1);
+                    closeModal();
                 } else {
+                    console.log("200 and user NOT found");
                     var serverResponse = xhr.responseText;
                     // Parse the JSON received and turn into a JS object. Access the data property to get the player info we want
                     var playerInfo = JSON.parse(serverResponse);
-                    alert(playerInfo.error);     
+                    closeModal();
+                    alert(playerInfo.error);
                 }
             }
         }

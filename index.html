@@ -16,8 +16,6 @@
 
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
-      <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-      <script src="dist/js/loading.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -70,6 +68,10 @@
           </p>
           <p><small>A "#" should be replaced by "-"</small></p>
           <button class="btn btn-primary" id="getPlayer">Compare</button>
+          <div id="fade"></div>
+          <div id="modal">
+                <img id="loader" src="dist/img/loading.gif">
+          </div>
       </div>
     </div><!-- /.container -->
       
@@ -86,15 +88,16 @@
 -->
           </div>
       </div>
-      
-      <div class="loading"><!-- Place at bottom of page --></div>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    
       <script src="dist/js/script.js"></script>
   </body>
 </html>
