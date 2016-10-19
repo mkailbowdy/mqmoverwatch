@@ -8,6 +8,12 @@ function closeModal() {
     document.getElementById('fade').style.display = 'none';
 }
 
+/* Make AJAX request to get Hero Stats */
+function getHeroStats ()
+{
+    
+}
+
 var compareBtn = document.getElementById("getPlayer");
 
 if (compareBtn) {
